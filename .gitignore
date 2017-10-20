@@ -1,5 +1,5 @@
 # ansible-runner-scripts
-base_run.cfg.sh
+cfg.base_run.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
