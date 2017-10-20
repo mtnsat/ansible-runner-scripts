@@ -1,6 +1,9 @@
 # ansible-runner-scripts
 cfg.base_run.sh
 
+# vim
+*.swp
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
