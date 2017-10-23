@@ -103,7 +103,8 @@ virtualenv_setup() {
   ## Mac OS X virtualenv install
   [[ $(uname) == 'Darwin' ]] && {
     [[ $(which virtualenv) ]] || {
-      brew install pyenv-virtualenv
+      #brew install pyenv-virtualenv
+      brew install virtualenv
     }
   }
 }
