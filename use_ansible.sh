@@ -135,6 +135,7 @@ run_from_virtualenv() {
   }
 
   echo; ansible --version; echo
+  export PYTHONPATH="venv-ansible${USE_ANSIBLE_VENV_VER}/lib/python2.7/site-packages/"
 }
 
 
