@@ -103,8 +103,9 @@ virtualenv_setup() {
   ## Mac OS X virtualenv install
   [[ $(uname) == 'Darwin' ]] && {
     [[ $(which virtualenv) ]] || {
-      #brew install pyenv-virtualenv
-      brew install virtualenv
+      echo "Error. Python virtualenv not present. Please install."
+      echo "  NB: usually pip install virtualenv will work."
+      exit 1
     }
   }
 }
