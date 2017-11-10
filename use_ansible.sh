@@ -91,6 +91,8 @@ virtualenv_setup() {
   ## Ubuntu virtualenv install
   [[ $(which apt-get) ]] && {
     [[ $(which virtualenv) ]] || {
+      echo "*** virtualenv not installed."
+      echo "*** Attempting installation..."
       sudo apt-get install -y python-virtualenv
     }
     for PKG in python-dev libffi-dev libssl-dev build-essential ; do
@@ -116,7 +118,9 @@ run_from_virtualenv() {
     echo "Exiting."
     exit 1
   fi
-  [ -d $VENV ] || {
+  [[ -d $VENV ]] || {
+    virtualenv_setup
+    echo "*** activating virtualenv: ${VENV}"
     virtualenv $VENV
     source ./$VENV/bin/activate
     pip install -U setuptools
