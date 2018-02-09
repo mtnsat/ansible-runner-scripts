@@ -93,6 +93,7 @@ virtualenv_setup() {
     [[ $(which virtualenv) ]] || {
       echo "*** virtualenv not installed."
       echo "*** Attempting installation..."
+      sudo apt-get update
       sudo apt-get install -y python-virtualenv
     }
     for PKG in python-dev libffi-dev libssl-dev build-essential ; do
