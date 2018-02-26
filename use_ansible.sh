@@ -99,7 +99,7 @@ virtualenv_setup() {
   ## One-time OS setup for virtualenv
 
   ## Ubuntu virtualenv install
-  [[ $(which apt-get) ]] && {
+  [[ $(which apt-get 2>/dev/null) ]] && {
     [[ $(which virtualenv) ]] || {
       echo "*** virtualenv not installed."
       echo "*** Attempting installation..."
@@ -122,8 +122,8 @@ virtualenv_setup() {
   }
 
   ## Arch Linux
-  [[ $(which pacman) ]] && {
-    for PKG in python2 python2-virtualenv python2-pip; do
+  which pacman 2>/dev/null && {
+    for PKG in base-devel python2 python2-virtualenv python2-pip; do
       pacman -Qqe | grep "$PKG" || {
         pacman -Sy --needed --noconfirm "$PKG"
       }
