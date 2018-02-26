@@ -93,7 +93,6 @@ virtualenv_setup() {
     [[ $(which virtualenv) ]] || {
       echo "*** virtualenv not installed."
       echo "*** Attempting installation..."
-      sudo apt-get update
       sudo apt-get install -y python-virtualenv
     }
     for PKG in python-dev libffi-dev libssl-dev build-essential ; do
@@ -111,6 +110,17 @@ virtualenv_setup() {
       exit 1
     }
   }
+
+  ## Arch Linux
+  [[ $(which pacman) ]] && {
+    for PKG in python2 python2-virtualenv; do
+      pacman -Qqe | grep "$PKG" || {
+        pacman -Sy --needed --noconfirm "$PKG"
+      }
+    done
+  }
+
+
 }
 
 run_from_virtualenv() {
