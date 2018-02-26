@@ -85,6 +85,16 @@ ansible_ver="${USE_ANSIBLE_VER:-v2.3.2.0-1}" # default for git method
 #-------------------------------------
 ##- virtualenv functions
 #-------------------------------------
+
+which pacman && {
+  VENV_BIN='virtualenv2'
+  PIP_BIN='pip2'
+} || {
+  VENV_BIN='virtualenv'
+  PIP_BIN='pip'
+}
+
+
 virtualenv_setup() {
   ## One-time OS setup for virtualenv
 
@@ -113,7 +123,7 @@ virtualenv_setup() {
 
   ## Arch Linux
   [[ $(which pacman) ]] && {
-    for PKG in python2 python2-virtualenv; do
+    for PKG in python2 python2-virtualenv python2-pip; do
       pacman -Qqe | grep "$PKG" || {
         pacman -Sy --needed --noconfirm "$PKG"
       }
@@ -132,11 +142,11 @@ run_from_virtualenv() {
   [[ -d $VENV ]] || {
     virtualenv_setup
     echo "*** activating virtualenv: ${VENV}"
-    virtualenv $VENV
+    $VENV_BIN $VENV
     source ./$VENV/bin/activate
-    pip install -U setuptools
-    pip install -U pip
-    pip install -r $REQUIREMENTS
+    $PIP_ENV install -U setuptools
+    $PIP_ENV install -U pip
+    $PIP_ENV install -r $REQUIREMENTS
     deactivate
   }
 
@@ -144,9 +154,9 @@ run_from_virtualenv() {
   source ./$VENV/bin/activate
   echo "Ensuring python requirements."
   [[ $debug_mode == 'true' ]] && {
-    pip install -r $REQUIREMENTS
+    $PIP_ENV install -r $REQUIREMENTS
   } || {
-    pip install -r $REQUIREMENTS >/dev/null
+    $PIP_ENV install -r $REQUIREMENTS >/dev/null
   }
 
   echo; ansible --version; echo
