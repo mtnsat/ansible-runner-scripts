@@ -144,9 +144,9 @@ run_from_virtualenv() {
     echo "*** activating virtualenv: ${VENV}"
     $VENV_BIN $VENV
     source ./$VENV/bin/activate
-    $PIP_ENV install -U setuptools
-    $PIP_ENV install -U pip
-    $PIP_ENV install -r $REQUIREMENTS
+    $PIP_BIN install -U setuptools
+    $PIP_BIN install -U pip
+    $PIP_BIN install -r $REQUIREMENTS
     deactivate
   }
 
@@ -154,9 +154,9 @@ run_from_virtualenv() {
   source ./$VENV/bin/activate
   echo "Ensuring python requirements."
   [[ $debug_mode == 'true' ]] && {
-    $PIP_ENV install -r $REQUIREMENTS
+    $PIP_BIN install -r $REQUIREMENTS
   } || {
-    $PIP_ENV install -r $REQUIREMENTS >/dev/null
+    $PIP_BIN install -r $REQUIREMENTS >/dev/null
   }
 
   echo; ansible --version; echo
