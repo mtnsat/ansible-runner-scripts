@@ -17,10 +17,11 @@ PyYAML==3.12
 six==1.11.0
 
 ## misc explicit needs
-awscli==1.11.168
+awscli==1.15.36
 appdirs==1.4.3
 boto==2.48.0
-botocore==1.7.26
+boto3==1.7.36
+botocore==1.10.36
 netaddr==0.7.19
 packaging==16.8
 requests==2.12.4
