@@ -35,7 +35,7 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
   REQUIREMENTS="${USE_ANSIBLE_VENV_REQ:-requirements-ansible2.0.txt}"
 } || {
   [[ -n $USE_ANSIBLE_VENV_VER ]] || {
-    USE_ANSIBLE_VENV_VER='2.4' #default
+    USE_ANSIBLE_VENV_VER='2.5' #default
   }
 
   case $USE_ANSIBLE_VENV_VER in
@@ -55,9 +55,13 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
       VENV='venv-ansible2.4'
       REQUIREMENTS='requirements-ansible2.4.txt'
       ;;
+    2.5)
+      VENV='venv-ansible2.5'
+      REQUIREMENTS='requirements-ansible2.5.txt'
+      ;;
     *)
       echo 'unrecognized USE_ANSIBLE_VENV_VER'
-      echo 'use "2.0", "2.2", "2,3" or "2.4"'
+      echo 'use "2.0", "2.2", "2,3", "2.4", or "2.5"'
       exit 1
       ;;
   esac
@@ -75,7 +79,7 @@ debug_mode="${USE_ANSIBLE_DEBUG:-false}"
 # ansible_ver="${USE_ANSIBLE_VER:-v2.0.2.0-1}"
 # ansible_ver="${USE_ANSIBLE_VER:-v2.1.6.0-1}"
 # ansible_ver="${USE_ANSIBLE_VER:-v2.2.3.0-1}"
-ansible_ver="${USE_ANSIBLE_VER:-v2.3.2.0-1}" # default for git method
+ansible_ver="${USE_ANSIBLE_VER:-v2.5.4.0}" # default for git method
 # ansible_ver="${USE_ANSIBLE_VER:-v2.4.0.0-1}"
 # ansible_ver="${USE_ANSIBLE_VER:-v2.4.1.0-0.4.rc2}"
 
