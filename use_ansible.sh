@@ -59,6 +59,10 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
       VENV='venv-ansible2.5'
       REQUIREMENTS='requirements-ansible2.5.txt'
       ;;
+    2.7)
+      VENV='venv-ansible2.7'
+      REQUIREMENTS='requirements-ansible2.7.txt'
+      ;;
     *)
       echo 'unrecognized USE_ANSIBLE_VENV_VER'
       echo 'use "2.0", "2.2", "2,3", "2.4", or "2.5"'
