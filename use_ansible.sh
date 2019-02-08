@@ -35,7 +35,7 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
   REQUIREMENTS="${USE_ANSIBLE_VENV_REQ:-requirements-ansible2.0.txt}"
 } || {
   [[ -n $USE_ANSIBLE_VENV_VER ]] || {
-    USE_ANSIBLE_VENV_VER='2.5' #default
+    USE_ANSIBLE_VENV_VER='2.7' #default
   }
 
   case $USE_ANSIBLE_VENV_VER in
