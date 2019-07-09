@@ -39,14 +39,6 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
   }
 
   case $USE_ANSIBLE_VENV_VER in
-    2.0)
-      VENV='venv-ansible2.0'
-      REQUIREMENTS='requirements-ansible2.0.txt'
-      ;;
-    2.2)
-      VENV='venv-ansible2.2'
-      REQUIREMENTS='requirements-ansible2.2.txt'
-      ;;
     2.3)
       VENV='venv-ansible2.3'
       REQUIREMENTS='requirements-ansible2.3.txt'
@@ -63,9 +55,12 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
       VENV='venv-ansible2.7'
       REQUIREMENTS='requirements-ansible2.7.txt'
       ;;
+    2.8)
+      VENV='venv-ansible2.8'
+      REQUIREMENTS='requirements-ansible2.8.txt'
     *)
       echo 'unrecognized USE_ANSIBLE_VENV_VER'
-      echo 'use "2.0", "2.2", "2,3", "2.4", or "2.5"'
+      echo 'use "2,3", "2.4", "2.5", "2.7", or "2.8"'
       exit 1
       ;;
   esac
