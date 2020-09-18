@@ -58,10 +58,14 @@ run_mode="${USE_ANSIBLE_MODE:-virtualenv}"
     2.8)
       VENV='venv-ansible2.8'
       REQUIREMENTS='requirements-ansible2.8.txt'
+      ;;    
+    2.9)
+      VENV='venv-ansible2.9'
+      REQUIREMENTS='requirements-ansible2.9.txt'
       ;;
     *)
       echo 'unrecognized USE_ANSIBLE_VENV_VER'
-      echo 'use "2,3", "2.4", "2.5", "2.7", or "2.8"'
+      echo 'use "2,3", "2.4", "2.5", "2.7", "2.8", or "2.9"'
       exit 1
       ;;
   esac
