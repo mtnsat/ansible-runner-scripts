@@ -18,6 +18,7 @@ six==1.11.0
 openshift==0.8.4
 
 ## misc explicit needs
+setuptools==44.1.1
 awscli==1.15.36
 appdirs==1.4.3
 boto==2.48.0
