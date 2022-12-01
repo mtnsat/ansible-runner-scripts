@@ -27,3 +27,4 @@ netaddr==0.7.19
 packaging==16.8
 requests==2.20.1
 wheel==0.30.0
+pywinrm==0.3.0
