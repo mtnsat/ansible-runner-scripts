@@ -15,7 +15,6 @@ pycparser==2.18
 PyNaCl==1.1.2
 PyYAML==3.12
 six==1.11.0
-openshift==0.8.4
 
 ## misc explicit needs
 setuptools==44.1.1
@@ -28,3 +27,4 @@ netaddr==0.7.19
 packaging==16.8
 requests==2.20.1
 wheel==0.30.0
+pywinrm==0.3.0
